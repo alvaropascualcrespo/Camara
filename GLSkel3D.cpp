@@ -41,7 +41,7 @@ void __fastcall TGLForm3D::FormCreate(TObject *Sender) {
   gluLookAt(eyeX, eyeY, eyeZ, lookX, lookY, lookZ, upX, upY, upZ);
 
   //Volumen de vista
-  N=1; F=1000;
+  N=100; F=1000;
   xRight=10; xLeft=-xRight;
   yTop=10; yBot=-yTop;
 
@@ -238,16 +238,16 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_O:     camara->ortogonal(xLeft,xRight,yTop,yBot,N,F);
                                 break;
 
-                case KEY_4:     camara->vistaLateral(1);
+                case KEY_4:     camara->vistaLateral(150);
                                 break;
 
-                case KEY_5:     camara->vistaFrontal(1);
+                case KEY_5:     camara->vistaFrontal(150);
                                 break;
 
-                case KEY_6:     camara->vistaCenital(1);
+                case KEY_6:     camara->vistaCenital(150);
                                 break;
 
-                case KEY_7:     camara->vistaEsquina(1,1,1);
+                case KEY_7:     camara->vistaEsquina(100,100,100);
                                 break;
 
                 case KEY_E:     camara->recorrido(5,0,0);

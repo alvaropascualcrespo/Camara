@@ -41,7 +41,7 @@ void __fastcall TGLForm3D::FormCreate(TObject *Sender) {
   gluLookAt(eyeX, eyeY, eyeZ, lookX, lookY, lookZ, upX, upY, upZ);
 
   //Volumen de vista
-  N=1; F=1000;
+  N=100; F=1000;
   xRight=10; xLeft=-xRight;
   yTop=10; yBot=-yTop;
 
@@ -182,9 +182,6 @@ void __fastcall TGLForm3D::FormDestroy(TObject *Sender) {
 //---------------------------------------------------------------------------
 void TGLForm3D::crearObjetosEscena() {
         TAfin* t = new TAfin();
-        t->setPosicion(3,0);
-        t->setPosicion(7,0);
-        t->setPosicion(11,0);
         escena = new Escena(t);
 }
 //---------------------------------------------------------------------------
@@ -241,16 +238,16 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_O:     camara->ortogonal(xLeft,xRight,yTop,yBot,N,F);
                                 break;
 
-                case KEY_4:     camara->vistaLateral(1);
+                case KEY_4:     camara->vistaLateral(150);
                                 break;
 
-                case KEY_5:     camara->vistaFrontal(1);
+                case KEY_5:     camara->vistaFrontal(150);
                                 break;
 
-                case KEY_6:     camara->vistaCenital(1);
+                case KEY_6:     camara->vistaCenital(150);
                                 break;
 
-                case KEY_7:     camara->vistaEsquina(1,1,1);
+                case KEY_7:     camara->vistaEsquina(100,100,100);
                                 break;
 
                 case KEY_E:     camara->recorrido(5,0,0);
@@ -286,7 +283,7 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_S:     camara->desplazarY(-0.2);
                                 break;
 
-                case KEY_B:     PV3D* d = new PV3D(0,0,0.9,false);
+                case KEY_B:     PV3D* d = new PV3D(0.1,0.1,0.9,false);
                                 camara->oblicua(d,xLeft,xRight,yTop,yBot,N,F);
                                 break;
 

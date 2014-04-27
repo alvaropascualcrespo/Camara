@@ -146,7 +146,7 @@ void Camara::ortogonal(GLfloat xLeft, GLfloat xRight, GLfloat yTop, GLfloat yBot
 }
 
 void Camara::oblicua(PV3D* d, GLfloat xLeft, GLfloat xRight, GLfloat yTop, GLfloat yBot, GLfloat N, GLfloat F){
-        glMatrixMode(GL_PROYECTION);
+        glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         glOrtho(xLeft,xRight,yBot,yTop,N,F);
 
