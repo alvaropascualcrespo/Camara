@@ -41,7 +41,7 @@ void __fastcall TGLForm3D::FormCreate(TObject *Sender) {
   gluLookAt(eyeX, eyeY, eyeZ, lookX, lookY, lookZ, upX, upY, upZ);
 
   //Volumen de vista
-  N=10; F=300;
+  N=30; F=300;
   xRight=10; xLeft=-xRight;
   yTop=10; yBot=-yTop;
 

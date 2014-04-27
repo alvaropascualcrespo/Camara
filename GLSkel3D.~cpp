@@ -41,7 +41,7 @@ void __fastcall TGLForm3D::FormCreate(TObject *Sender) {
   gluLookAt(eyeX, eyeY, eyeZ, lookX, lookY, lookZ, upX, upY, upZ);
 
   //Volumen de vista
-  N=10; F=300;
+  N=20; F=300;
   xRight=10; xLeft=-xRight;
   yTop=10; yBot=-yTop;
 
@@ -227,27 +227,27 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_LESS:  zoom = ZOOM_BASE - DELTA_ZOOM;
                                 break;
 
-                case KEY_J:     angYaw += M_PI/512;
+                case KEY_J:     angYaw += M_PI/256;
                                 camara->yaw(angYaw);
                                 break;
 
-                case KEY_K:     angYaw -= M_PI/512;
+                case KEY_K:     angYaw -= M_PI/256;
                                 camara->yaw(angYaw);
                                 break;
 
-                case KEY_U:     angRoll += M_PI/512;
+                case KEY_U:     angRoll += M_PI/256;
                                 camara->roll(angRoll);
                                 break;
 
-                case KEY_I:     angRoll -= M_PI/512;
+                case KEY_I:     angRoll -= M_PI/256;
                                 camara->roll(angRoll);
                                 break;
 
-                case KEY_N:     angPitch += M_PI/512;
+                case KEY_N:     angPitch += M_PI/256;
                                 camara->pitch(angPitch);
                                 break;
 
-                case KEY_M:     angPitch -= M_PI/512;
+                case KEY_M:     angPitch -= M_PI/256;
                                 camara->pitch(angPitch);
                                 break;
 
