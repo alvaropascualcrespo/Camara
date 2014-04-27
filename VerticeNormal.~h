@@ -1,0 +1,18 @@
+//---------------------------------------------------------------------------
+
+#ifndef VerticeNormalH
+#define VerticeNormalH
+//---------------------------------------------------------------------------
+class VerticeNormal{
+
+        private:
+                int indiceVertice;
+                int indiceNormal;
+
+        public:
+                int getIndiceNormal(){return indiceNormal;};
+                int getIndiceVertice(){return indiceVertice;};
+
+};
+
+#endif

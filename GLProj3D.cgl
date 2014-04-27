@@ -1,0 +1,26 @@
+Error 00121. 0x300010 (Thread 0x0BDC):
+Resource leak: The object (0x1A0EDD8) was never deleted
+
+The object (0x01A0EDD8) [size: 32 bytes] was created with new
+Call Tree:
+   0x0040526D(=GLProj3D.exe:0x01:00426D) \\POPCORN\Users\Ismael\Documents\MontanaRusa\MontanaRusa.cpp#77
+   0x0040563E(=GLProj3D.exe:0x01:00463E) \\POPCORN\Users\Ismael\Documents\MontanaRusa\MontanaRusa.cpp#104
+   0x00402409(=GLProj3D.exe:0x01:001409) \\POPCORN\Users\Ismael\Documents\MontanaRusa\GLSkel3D.cpp#120
+   0x004027CD(=GLProj3D.exe:0x01:0017CD) \\POPCORN\Users\Ismael\Documents\MontanaRusa\GLSkel3D.cpp#173
+   0x4006F871(=VCL50.BPL:0x01:06E871)
+   0x40054117(=VCL50.BPL:0x01:053117)
+
+------------------------------------------
+Error 00122. 0x300010 (Thread 0x0BDC):
+Resource leak: The object (0x1A0ADD8) was never deleted
+
+The object (0x01A0ADD8) [size: 32 bytes] was created with new
+Call Tree:
+   0x00405393(=GLProj3D.exe:0x01:004393) \\POPCORN\Users\Ismael\Documents\MontanaRusa\MontanaRusa.cpp#84
+   0x00405658(=GLProj3D.exe:0x01:004658) \\POPCORN\Users\Ismael\Documents\MontanaRusa\MontanaRusa.cpp#106
+   0x00402409(=GLProj3D.exe:0x01:001409) \\POPCORN\Users\Ismael\Documents\MontanaRusa\GLSkel3D.cpp#120
+   0x004027CD(=GLProj3D.exe:0x01:0017CD) \\POPCORN\Users\Ismael\Documents\MontanaRusa\GLSkel3D.cpp#173
+   0x4006F871(=VCL50.BPL:0x01:06E871)
+   0x40054117(=VCL50.BPL:0x01:053117)
+
+------------------------------------------

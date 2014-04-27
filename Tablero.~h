@@ -1,0 +1,21 @@
+//---------------------------------------------------------------------------
+
+#ifndef TableroH
+#define TableroH
+
+#include "Malla.h"
+#include "Color.h"
+//---------------------------------------------------------------------------
+class Tablero : public Malla{
+        private:
+                GLfloat largo;
+                GLfloat alto;
+                GLfloat ancho;
+                Color* color;
+
+        public:
+                Tablero(GLfloat l, GLfloat a, GLfloat an, TAfin* t, Color* c);
+                void construye();
+                void setColor(Color* c){color = c;};
+};
+#endif

@@ -1,0 +1,11 @@
+//---------------------------------------------------------------------------
+
+#ifndef DiscoParcialH
+#define DiscoParcialH
+//---------------------------------------------------------------------------
+class DiscoParcial : public ObjetoCuadrico{
+
+}
+
+#endif
+ 

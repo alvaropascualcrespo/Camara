@@ -1,0 +1,22 @@
+//---------------------------------------------------------------------------
+
+#ifndef ObjetoCompuestoH
+#define ObjetoCompuestoH
+
+#include "Objeto3D.h"
+#include "Color.h"
+//---------------------------------------------------------------------------
+class ObjetoCompuesto : public Objeto3D{
+        private:
+                Objeto3D** array;
+                int numObjetos;
+
+        public:
+                ObjetoCompuesto(TAfin* t, Color* c);
+                void anade(Objeto3D* o);
+                int getNumObjetos(){return numObjetos;};
+                Objeto3D* dameObjeto(int i){return array[i];};
+                void dibuja();
+
+};
+#endif
