@@ -33,7 +33,7 @@ void __fastcall TGLForm3D::FormCreate(TObject *Sender) {
   glShadeModel(GL_SMOOTH);   //Defecto
 
   //Cámara
-  eyeX=100.0; eyeY=100.0; eyeZ=100.0;
+  eyeX=40.0; eyeY=40.0; eyeZ=40.0;
   lookX=0.0; lookY=0.0; lookZ=0.0;
   upX=0; upY=1; upZ=0;
   glMatrixMode(GL_MODELVIEW);
@@ -41,7 +41,7 @@ void __fastcall TGLForm3D::FormCreate(TObject *Sender) {
   gluLookAt(eyeX, eyeY, eyeZ, lookX, lookY, lookZ, upX, upY, upZ);
 
   //Volumen de vista
-  N=100; F=1000;
+  N=10; F=300;
   xRight=10; xLeft=-xRight;
   yTop=10; yBot=-yTop;
 
@@ -60,7 +60,7 @@ void __fastcall TGLForm3D::FormCreate(TObject *Sender) {
   angRoll = 0;
   angYaw = 0;
   angPitch = 0;
-  camara = new Camara(100.0,100.0,100.0,0.0,0.0,0.0,0.0,1.0,0.0);
+  camara = new Camara(eyeX,eyeY,eyeZ,lookX,lookY,lookZ,upX,upY,upZ);
 
   //Luz0
   glEnable(GL_LIGHT0);
@@ -151,7 +151,7 @@ void __fastcall TGLForm3D::GLScene() {
 
   zoom = ZOOM_BASE;
 
-  glScalef(zoom,zoom,zoom);
+  glScalef(1/zoom,1/zoom,1/zoom);
   glTranslatef(-traslate,0,0);
  
 
@@ -227,27 +227,27 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_LESS:  zoom = ZOOM_BASE - DELTA_ZOOM;
                                 break;
 
-                case KEY_J:     angYaw += M_PI/512;
+                case KEY_J:     angYaw += M_PI/256;
                                 camara->yaw(angYaw);
                                 break;
 
-                case KEY_K:     angYaw -= M_PI/512;
+                case KEY_K:     angYaw -= M_PI/256;
                                 camara->yaw(angYaw);
                                 break;
 
-                case KEY_U:     angRoll += M_PI/512;
+                case KEY_U:     angRoll += M_PI/256;
                                 camara->roll(angRoll);
                                 break;
 
-                case KEY_I:     angRoll -= M_PI/512;
+                case KEY_I:     angRoll -= M_PI/256;
                                 camara->roll(angRoll);
                                 break;
 
-                case KEY_N:     angPitch += M_PI/512;
+                case KEY_N:     angPitch += M_PI/256;
                                 camara->pitch(angPitch);
                                 break;
 
-                case KEY_M:     angPitch -= M_PI/512;
+                case KEY_M:     angPitch -= M_PI/256;
                                 camara->pitch(angPitch);
                                 break;
 
@@ -257,34 +257,34 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_O:     camara->ortogonal(xLeft,xRight,yTop,yBot,N,F);
                                 break;
 
-                case KEY_4:     camara->vistaLateral(150);
+                case KEY_4:     camara->vistaLateral(15);
                                 break;
 
-                case KEY_5:     camara->vistaFrontal(150);
+                case KEY_5:     camara->vistaFrontal(15);
                                 break;
 
-                case KEY_6:     camara->vistaCenital(150);
+                case KEY_6:     camara->vistaCenital(15);
                                 break;
 
-                case KEY_7:     camara->vistaEsquina(100,100,100);
+                case KEY_7:     camara->vistaEsquina(10,10,10);
                                 break;
 
-                case KEY_E:     camara->recorrido(5,0,0);
+                case KEY_E:     camara->recorrido(0.5,0,0);
                                 break;
 
-                case KEY_R:     camara->recorrido(-5,0,0);
+                case KEY_R:     camara->recorrido(-0.5,0,0);
                                 break;
 
-                case KEY_D:     camara->recorrido(0,5,0);
+                case KEY_D:     camara->recorrido(0,0.5,0);
                                 break;
 
-                case KEY_F:     camara->recorrido(0,-5,0);
+                case KEY_F:     camara->recorrido(0,-0.5,0);
                                 break;
 
-                case KEY_C:     camara->recorrido(0,0,5);
+                case KEY_C:     camara->recorrido(0,0,0.5);
                                 break;
 
-                case KEY_V:     camara->recorrido(0,0,-5);
+                case KEY_V:     camara->recorrido(0,0,-0.5);
                                 break;
 
                 case KEY_1:     camara->giraX();

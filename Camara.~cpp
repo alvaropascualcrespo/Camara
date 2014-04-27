@@ -129,7 +129,7 @@ void Camara::hazMovimiento(PV3D* u, PV3D* v, PV3D* n, PV3D* eye){
         m[15] = 1;
 
         glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
+        //glLoadIdentity();
         glLoadMatrixf(m);
 }
 
@@ -215,7 +215,7 @@ void Camara::vistaEsquina(GLfloat eyeX, GLfloat eyeY, GLfloat eyeZ){
 
 void Camara::fijarCamara(){
         glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
+        //glLoadIdentity();
         gluLookAt(eyeX,eyeY,eyeZ,lookX,lookY,lookZ,upX,upY,upZ);
 }
 
