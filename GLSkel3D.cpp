@@ -53,6 +53,8 @@ void __fastcall TGLForm3D::FormCreate(TObject *Sender) {
   posX = 0;
   posY = 0;
   posZ = 0;
+  traslate = 0;
+  zoom = ZOOM_BASE;
   relleno = false;
 
   angRoll = 0;
@@ -128,21 +130,29 @@ void __fastcall TGLForm3D::GLScene() {
 
   glMatrixMode(GL_MODELVIEW);
 
+  glTranslatef(traslate,0,0);
+
   glRotatef(posX,1,0,0);
   glRotatef(posY,0,1,0);
   glRotatef(posZ,0,0,1);
 
-  glScalef(2,2,2);
+  //ShowMessage(zoom);
+
+  glScalef(zoom,zoom,zoom);
   escena->dibuja();
+
 
   glRotatef(-posZ,0,0,1);
   glRotatef(-posY,0,1,0);
   glRotatef(-posX,1,0,0);
 
-  glScalef(0.5,0.5,0.5);
+  
 
 
+  zoom = ZOOM_BASE;
 
+  glScalef(zoom,zoom,zoom);
+  glTranslatef(-traslate,0,0);
  
 
 
@@ -199,7 +209,7 @@ void __fastcall TGLForm3D::FormKeyPress(TObject *Sender, char &Key)
 void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
       TShiftState Shift)
 {
-       
+      // ShowMessage(Key);
         switch(Key){
                 case KEY_UP: posX -= ANG_GIRO; break;
                 case KEY_DOWN: posX += ANG_GIRO; break;
@@ -207,6 +217,15 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_RIGHT: posY += ANG_GIRO; break;
                 case KEY_A: posZ += ANG_GIRO; break;
                 case KEY_Z: posZ -= ANG_GIRO; break;
+
+                case KEY_COMA:  traslate += DELTA_TRASLATE; break;
+                case KEY_POINT: traslate -= DELTA_TRASLATE; break;
+
+                case KEY_MORE:  zoom = ZOOM_BASE + DELTA_ZOOM;
+                                break;
+                                
+                case KEY_LESS:  zoom = ZOOM_BASE - DELTA_ZOOM;
+                                break;
 
                 case KEY_J:     angYaw += M_PI/512;
                                 camara->yaw(angYaw);
@@ -286,6 +305,8 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_B:     PV3D* d = new PV3D(0,0,0.9,false);
                                 camara->oblicua(d,xLeft,xRight,yTop,yBot,N,F);
                                 break;
+
+
 
         }
         GLScene();

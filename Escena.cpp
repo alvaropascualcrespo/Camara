@@ -11,7 +11,6 @@
 #include "Esfera.h"
 #include <gl/GL.h>
 #include <gl/Glu.h>
-#include <gl/glut.h>
 
 //---------------------------------------------------------------------------
 Escena::Escena(TAfin* t){
