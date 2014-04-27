@@ -50,6 +50,9 @@
 #define KEY_B 66
 #define KEY_MORE 107
 #define KEY_LESS 109
+#define KEY_COMA 188
+#define KEY_POINT 190
+
 
 //---------------------------------------------------------------------------
 class TGLForm3D : public TForm
@@ -70,7 +73,8 @@ private:        //User declarations
     GLdouble RatioViewPort, xLeft, xRight, yBot, yTop, N, F;  //Volumen de vista
     Malla* malla;  //Malla inicial de la escena
     GLfloat posX, posY, posZ; // variables para la posicion
-    GLfloat zoom; // variables para la posicion de la montana rusa
+    GLfloat zoom; // variable para el zoom
+    GLfloat traslate;
     bool relleno, normales;
     GLfloat angRoll, angYaw, angPitch;
     Camara* camara;
@@ -88,6 +92,7 @@ public:		//User declarations
 const float ANG_GIRO = 180.0f/30.0f;
 const float DELTA_ZOOM = 0.02f;
 const float ZOOM_BASE = 1.0f;
+const float DELTA_TRASLATE = 0.4f;
 //---------------------------------------------------------------------------
 extern PACKAGE TGLForm3D *GLForm3D;
 //---------------------------------------------------------------------------
