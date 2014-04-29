@@ -60,44 +60,26 @@ Escena::Escena(TAfin* t){
 
         //Patas
         TAfin* tpata1 = new TAfin();
-        tpata1->traslacion(-0.25,0.8,-3.25);
-        tpata1->setPosicion(5,cos(M_PI/2));
-        tpata1->setPosicion(6,sin(M_PI/2));
-        tpata1->setPosicion(9,-sin(M_PI/2));
-        tpata1->setPosicion(10,cos(M_PI/2));
-
+        tpata1->traslacion(-0.25,0.8,-0.25);
+        tpata1->rotacion(90,1,0,0);  
         Cilindro* pata1 = new Cilindro(0.2,0.2,1,4,4,tpata1,new Color(94,38,5));
         billar->anade(pata1);
 
         TAfin* tpata2 = new TAfin();
-        tpata2->traslacion(2.25,0.8,-0.25);
-        tpata2->setPosicion(5,cos(M_PI/2));
-        tpata2->setPosicion(6,sin(M_PI/2));
-        tpata2->setPosicion(9,-sin(M_PI/2));
-        tpata2->setPosicion(10,cos(M_PI/2));
-
+        tpata2->traslacion(4.25,0.8,-0.25);
+        tpata2->rotacion(90,1,0,0);
         Cilindro* pata2 = new Cilindro(0.2,0.2,1,4,4,tpata2,new Color(94,38,5));
         billar->anade(pata2);
 
         TAfin* tpata3 = new TAfin();
         tpata3->traslacion(-0.25,0.8,2.25);
-        tpata3->rotacion(180,0,1,0);
-
-       /* tpata3->setPosicion(13,0.8);
-        tpata3->setPosicion(12,-0.25);
-        tpata3->setPosicion(14,2.25);   */
+        tpata3->rotacion(90,1,0,0);
         Cilindro* pata3 = new Cilindro(0.2,0.2,1,4,4,tpata3,new Color(94,38,5));
         billar->anade(pata3);
 
         TAfin* tpata4 = new TAfin();
-        tpata4->setPosicion(5,cos(M_PI/2));
-        tpata4->setPosicion(6,sin(M_PI/2));
-        tpata4->setPosicion(9,-sin(M_PI/2));
-        tpata4->setPosicion(10,cos(M_PI/2));
-        tpata4->setPosicion(13,0.8);
-        tpata4->setPosicion(14,-0.25);
-        tpata4->setPosicion(12,4.25);
-        tpata4->setPosicion(14,2.25);
+        tpata4->traslacion(4.25,0.8,2.25);
+        tpata4->rotacion(90,1,0,0);
         Cilindro* pata4 = new Cilindro(0.2,0.2,1,4,4,tpata4,new Color(94,38,5));
         billar->anade(pata4);
 
@@ -175,6 +157,10 @@ Escena::Escena(TAfin* t){
 
 void Escena::dibuja(){
         billar->dibuja();
+}
+
+void Escena::escala(float zoom){
+        billar->escala(zoom);
 }
 
 #pragma package(smart_init)

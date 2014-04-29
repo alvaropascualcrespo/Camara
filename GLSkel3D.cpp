@@ -136,7 +136,7 @@ void __fastcall TGLForm3D::GLScene() {
   glRotatef(posY,0,1,0);
   glRotatef(posZ,0,0,1);
 
-  //ShowMessage(zoom);
+
 
   glScalef(zoom,zoom,zoom);
   escena->dibuja();
