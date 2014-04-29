@@ -257,16 +257,16 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_O:     camara->ortogonal(xLeft,xRight,yTop,yBot,N,F);
                                 break;
 
-                case KEY_4:     camara->vistaLateral(15);
+                case KEY_4:     camara->vistaLateral(40);
                                 break;
 
-                case KEY_5:     camara->vistaFrontal(15);
+                case KEY_5:     camara->vistaFrontal(40);
                                 break;
 
-                case KEY_6:     camara->vistaCenital(15);
+                case KEY_6:     camara->vistaCenital(40);
                                 break;
 
-                case KEY_7:     camara->vistaEsquina(10,10,10);
+                case KEY_7:     camara->vistaEsquina(40,40,40);
                                 break;
 
                 case KEY_E:     camara->recorrido(0.5,0,0);
