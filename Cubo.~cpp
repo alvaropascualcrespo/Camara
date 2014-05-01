@@ -7,7 +7,7 @@
 
 //---------------------------------------------------------------------------
 
-Cubo::Cubo(GLfloat xa, GLfloat ya, GLfloat za, TAfin* t) : Malla(8,6,6,t){
+Cubo::Cubo(GLfloat xa, GLfloat ya, GLfloat za, TAfin* t, Color* c) : Malla(8,6,6,t,c){
         x = xa;
         y = ya;
         z = za;
@@ -48,7 +48,7 @@ void Cubo::construye(){
                 caras[numCara]->addVerticeNormal(normalesCara);
         }
 
-        //Cara4
+        /*//Cara4
         caras[4] = new Cara(nVerticesCara);
         VerticeNormal** normales4 = new VerticeNormal*[nVerticesCara];
         normales4[0] = new VerticeNormal(0,4);
@@ -64,9 +64,9 @@ void Cubo::construye(){
         normales5[1] = new VerticeNormal(5,5);
         normales5[2] = new VerticeNormal(6,5);
         normales5[3] = new VerticeNormal(7,5);
-        caras[5]->addVerticeNormal(normales5);
+        caras[5]->addVerticeNormal(normales5);*/
 
-        for(int i=0; i<numCaras; i++){
+        for(int i=0; i<numCaras-2; i++){
                 PV3D* normal = CalculoVectorNormalPorNewell(caras[i]);
                 normales[i] = normal;
         }

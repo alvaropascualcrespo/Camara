@@ -16,7 +16,7 @@ void ObjetoCompuesto::anade(Objeto3D* o){
         numObjetos++;
 }
 
-void ObjetoCompuesto::dibuja(){
+void ObjetoCompuesto::dibuja(bool relleno){
         glMatrixMode(GL_MODELVIEW);
         glPushMatrix();
         GLfloat* m = getTAfin()->getMatrix();
@@ -24,7 +24,7 @@ void ObjetoCompuesto::dibuja(){
         for(int i=0; i<numObjetos; i++){
                 Color* c = array[i]->getColor();
                 glColor3f(c->r/255,c->g/255,c->b/255);
-                array[i]->dibuja();
+                array[i]->dibuja(relleno);
         }
         glPopMatrix();
 }

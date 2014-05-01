@@ -7,7 +7,7 @@
     <OBJFILES value="GLProj3D.obj GLSkel3D.obj PV3D.obj Cara.obj VerticeNormal.obj Malla.obj 
       Objeto3D.obj ObjetoCuadrico.obj ObjetoCompuesto.obj Tablero.obj TAfin.obj 
       Color.obj Esfera.obj Cilindro.obj Disco.obj DiscoParcial.obj Camara.obj 
-      Escena.obj"/>
+      Escena.obj Cubo.obj"/>
     <RESFILES value="GLProj3D.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>

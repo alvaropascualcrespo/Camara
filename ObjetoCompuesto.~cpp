@@ -26,7 +26,7 @@ void ObjetoCompuesto::dibuja(){
                 glColor3f(c->r/255,c->g/255,c->b/255);
                 array[i]->dibuja();
         }
-        //glPopMatrix();
+        glPopMatrix();
 }
 
 #pragma package(smart_init)

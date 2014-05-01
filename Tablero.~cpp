@@ -7,68 +7,88 @@
 
 //---------------------------------------------------------------------------
 
-Tablero::Tablero(GLfloat l, GLfloat a, GLfloat an, TAfin* t, Color* c) : Malla(8,6,6,t,c){
+Tablero::Tablero(GLfloat l, GLfloat a, GLfloat an, int partL, int partAN, int partAL, TAfin* t, Color* c) : ObjetoCompuesto(t,c){
         largo = l;
         alto = a;
         ancho = an;
+        partesL = partL;
+        partesAN = partAN;
+        partesAL = partAL;
 }
 
 void Tablero::construye(){
-        vertices[0] = new PV3D(0,alto,0,1);
-        vertices[4] = new PV3D(0,alto,ancho,1);
+        GLfloat largoCara = largo/partesL;
+        GLfloat anchoCara = ancho/partesAN;
+        GLfloat altoCara = alto/partesAL;
+       /* int nVert = 0;
 
-        vertices[1] = new PV3D(0,0,0,1);
-        vertices[5] = new PV3D(0,0,ancho,1);
-
-        vertices[2] = new PV3D(largo,0,0,1);
-        vertices[6] = new PV3D(largo,0,ancho,1);
-
-        vertices[3] = new PV3D(largo,alto,0,1);
-        vertices[7] = new PV3D(largo,alto,ancho,1);
-
-        int nVerticesCara = 4;
-        for(int i=0; i<nVerticesCara; i++){
-                int numCara = i;
-                caras[numCara] = new Cara(nVerticesCara);
-                VerticeNormal** normalesCara = new VerticeNormal*[nVerticesCara];
-
-                int base = i;
-                int suc = (i+1) % nVerticesCara;
-
-                int v0 = base;
-                int v1 = suc;
-                int v2 = suc + nVerticesCara;
-                int v3 = base + nVerticesCara;
-
-                normalesCara[0] = new VerticeNormal(v0,numCara);
-                normalesCara[1] = new VerticeNormal(v1,numCara);
-                normalesCara[2] = new VerticeNormal(v2,numCara);
-                normalesCara[3] = new VerticeNormal(v3,numCara);
-
-                caras[numCara]->addVerticeNormal(normalesCara);
+        for (int i=0; i<=partesL; i++){
+                for(int j=0; j<=partesAL; j++){
+                        for(int k=0; k<=partesAN; k++){
+                                vertices[nVert] = new PV3D(i*largoCara,j*anchoCara,k*altoCara,1);
+                                nVert++;
+                        }
+                }
         }
 
-        //Cara4
-        caras[4] = new Cara(nVerticesCara);
-        VerticeNormal** normales4 = new VerticeNormal*[nVerticesCara];
-        normales4[0] = new VerticeNormal(0,4);
-        normales4[1] = new VerticeNormal(3,4);
-        normales4[2] = new VerticeNormal(2,4);
-        normales4[3] = new VerticeNormal(1,4);
-        caras[4]->addVerticeNormal(normales4);
+        int v;
+        int numCara = 0;
+        VerticeNormal** normalesCara;
+        for (int i=0; i<=partesL; i++){
+                for(int j=0; j<=partesAL; j++){
+                        for(int k=0; k<=partesAN; k++){
+                                v = i * ((partesAL + 1) * (partesAN + 1)) + (j * (partesAN + 1)) + k;
+                                 if ((i != partesL) && (j != partesAL)){
+                                        caras[numCara] = new Cara(4);
+                                        normalesCara = new VerticeNormal*[4];
+                                        normalesCara[0] = new VerticeNormal(v,numCara);
+                                        normalesCara[1] = new VerticeNormal(v + ((partesAN + 1) * (partesAL + 1)),numCara);
+                                        normalesCara[2] = new VerticeNormal(v + ((partesAN + 1) * (partesAL + 1)) + (partesAN + 1),numCara);
+                                        normalesCara[3] = new VerticeNormal(v + (partesAN + 1),numCara);
+                                        caras[numCara]->addVerticeNormal(normalesCara);
+                                        numCara++;
+                                }
+                                if ((i != partesL) && (k != partesAN)){
+                                        caras[numCara] = new Cara(4);
+                                        normalesCara = new VerticeNormal*[4];
+                                        normalesCara[0] = new VerticeNormal(v,numCara);
+                                        normalesCara[1] = new VerticeNormal(v+1,numCara);
+                                        normalesCara[2] = new VerticeNormal(v + ((partesAN + 1) * (partesAL + 1)) + 1,numCara);
+                                        normalesCara[3] = new VerticeNormal(v + ((partesAN + 1) * (partesAL + 1)),numCara);
+                                        caras[numCara]->addVerticeNormal(normalesCara);
+                                        numCara++;
+                                }
+                                if ((k != partesAN) && (j != partesAL)){
+                                       caras[numCara] = new Cara(4);
+                                       normalesCara = new VerticeNormal*[4];
+                                        normalesCara[0] = new VerticeNormal(v,numCara);
+                                        normalesCara[1] = new VerticeNormal(v+1,numCara);
+                                        normalesCara[2] = new VerticeNormal(v + (partesAN + 1) + 1,numCara);
+                                        normalesCara[3] = new VerticeNormal(v + (partesAN + 1),numCara);
+                                        caras[numCara]->addVerticeNormal(normalesCara);
+                                        numCara++;
+                                }
 
-        //Cara5
-        caras[5] = new Cara(nVerticesCara);
-        VerticeNormal** normales5 = new VerticeNormal*[nVerticesCara];
-        normales5[0] = new VerticeNormal(4,5);
-        normales5[1] = new VerticeNormal(5,5);
-        normales5[2] = new VerticeNormal(6,5);
-        normales5[3] = new VerticeNormal(7,5);
-        caras[5]->addVerticeNormal(normales5);
+
+                        }
+                }
+        }
+
 
         for(int i=0; i<numCaras; i++){
                 PV3D* normal = CalculoVectorNormalPorNewell(caras[i]);
                 normales[i] = normal;
+        }       */
+        for (int i=0; i<=partesL; i++){
+                for(int j=0; j<=partesAL; j++){
+                        for(int k=0; k<=partesAN; k++){
+                                TAfin* t = new TAfin();
+                                t->traslacion(i*largoCara,j*altoCara,k*anchoCara);
+                                Cubo* c = new Cubo(largoCara,altoCara,anchoCara,t,color);
+                                c->construye();
+                                anade(c);
+                        }
+                }
         }
 }
 

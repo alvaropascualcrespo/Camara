@@ -12,7 +12,7 @@ class Objeto3D{
                 TAfin* getTAfin(){return tm;};
                 Color* getColor(){return color;};
                 Color* color;
-                virtual void dibuja()=0;
+                virtual void dibuja(bool relleno)=0;
 
         private:
                 TAfin* tm;

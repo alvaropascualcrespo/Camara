@@ -16,7 +16,10 @@ Cilindro::Cilindro(GLdouble b, GLdouble a, GLdouble h, GLint p, GLint l, TAfin* 
 }
 
 void Cilindro::dibuja(){
+        glPushMatrix();
+        glMultMatrixf(getTAfin()->getMatrix());
         gluCylinder(quadric,base,arriba,altura,porciones,lados);
+        glPopMatrix();
 }
 
 #pragma package(smart_init)

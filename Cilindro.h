@@ -18,7 +18,7 @@ class Cilindro : public ObjetoCuadrico{
                 GLint lados;
         public:
                 Cilindro(GLdouble b, GLdouble a, GLdouble h, GLint p, GLint l, TAfin* t, Color* c);
-                void dibuja();
+                void dibuja(bool rellena);
 
 };
 

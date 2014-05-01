@@ -55,7 +55,7 @@ void __fastcall TGLForm3D::FormCreate(TObject *Sender) {
   posZ = 0;
   traslate = 0;
   zoom = ZOOM_BASE;
-  relleno = false;
+  relleno = true;
 
   angRoll = 0;
   angYaw = 0;
@@ -139,7 +139,7 @@ void __fastcall TGLForm3D::GLScene() {
 
 
   glScalef(zoom,zoom,zoom);
-  escena->dibuja();
+  escena->dibuja(relleno);
 
 
   glRotatef(-posZ,0,0,1);
@@ -217,6 +217,8 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_RIGHT: posY += ANG_GIRO; break;
                 case KEY_A: posZ += ANG_GIRO; break;
                 case KEY_Z: posZ -= ANG_GIRO; break;
+                case KEY_G: relleno = false; break;
+                case KEY_H: relleno = true; break;
 
                 case KEY_COMA:  traslate += DELTA_TRASLATE; break;
                 case KEY_POINT: traslate -= DELTA_TRASLATE; break;
@@ -302,10 +304,9 @@ void __fastcall TGLForm3D::FormKeyDown(TObject *Sender, WORD &Key,
                 case KEY_S:     camara->desplazarY(-0.2);
                                 break;
 
-                case KEY_B:     PV3D* d = new PV3D(0,0,0.9,false);
+                case KEY_B:     PV3D* d = new PV3D(0.09,0.09,1,false);
                                 camara->oblicua(d,xLeft,xRight,yTop,yBot,N,F);
                                 break;
-
 
 
         }

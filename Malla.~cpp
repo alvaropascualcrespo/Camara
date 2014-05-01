@@ -34,7 +34,6 @@ PV3D* Malla::CalculoVectorNormalPorNewell(Cara* c){
 
 void Malla::dibuja(){
         glPushMatrix();
-        GLfloat* m = getTAfin()->getMatrix();
         glMultMatrixf(getTAfin()->getMatrix());
         for(int i=0; i<numCaras; i++){
                 glLineWidth(1.0);
@@ -42,7 +41,7 @@ void Malla::dibuja(){
                         glBegin(GL_POLYGON);
                 //}
                 //else{
-                //        glBegin(GL_LINE_LOOP);
+                        //glBegin(GL_LINE_LOOP);
                 //}
                 for(int j=0; j<caras[i]->getNumeroVertices(); j++){
                         int iN = caras[i]->getIndiceNormalK(j);

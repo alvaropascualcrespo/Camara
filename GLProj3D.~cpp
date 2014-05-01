@@ -19,7 +19,6 @@ USEUNIT("Cilindro.cpp");
 USEUNIT("Disco.cpp");
 USEUNIT("DiscoParcial.cpp");
 USEUNIT("Camara.cpp");
-USEUNIT("Cubo.cpp");
 USEUNIT("Escena.cpp");
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)

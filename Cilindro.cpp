@@ -15,7 +15,7 @@ Cilindro::Cilindro(GLdouble b, GLdouble a, GLdouble h, GLint p, GLint l, TAfin* 
         lados = l;
 }
 
-void Cilindro::dibuja(){
+void Cilindro::dibuja(bool rellena){
         glPushMatrix();
         glMultMatrixf(getTAfin()->getMatrix());
         gluCylinder(quadric,base,arriba,altura,porciones,lados);

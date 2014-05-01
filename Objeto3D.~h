@@ -8,7 +8,7 @@
 //---------------------------------------------------------------------------
 class Objeto3D{
         public:
-                Objeto3D(TAfin* t, Color* c){tm = t;};
+                Objeto3D(TAfin* t, Color* c){tm = t; color = c;};
                 TAfin* getTAfin(){return tm;};
                 Color* getColor(){return color;};
                 Color* color;

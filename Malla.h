@@ -21,7 +21,7 @@ class Malla : public Objeto3D{
                 Malla(int nV, int nN, int nC, TAfin* t, Color* c);
                 PV3D* CalculoVectorNormalPorNewell(Cara* c);
                 PV3D** getVertices(){return vertices;};
-                void dibuja();
+                void dibuja(bool rellena);
                 void dibujaNormales();
                 PV3D* calcularCentro(Cara* c);
 

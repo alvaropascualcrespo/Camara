@@ -13,7 +13,7 @@ Esfera::Esfera(GLdouble r, GLint p, GLint m, TAfin* t, Color* c) : ObjetoCuadric
         meridianos = m;
 }
 
-void Esfera::dibuja(){
+void Esfera::dibuja(bool rellena){
         glPushMatrix();
         glMultMatrixf(getTAfin()->getMatrix());
         gluSphere(quadric,radio,paralelos,meridianos);

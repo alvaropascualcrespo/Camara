@@ -7,7 +7,7 @@
 
 //---------------------------------------------------------------------------
 
-Cubo::Cubo(GLfloat xa, GLfloat ya, GLfloat za) : Malla(8,6,6){
+Cubo::Cubo(GLfloat xa, GLfloat ya, GLfloat za, TAfin* t, Color* c) : Malla(8,6,6,t,c){
         x = xa;
         y = ya;
         z = za;

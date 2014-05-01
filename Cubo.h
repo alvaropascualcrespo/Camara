@@ -4,6 +4,8 @@
 #define CuboH
 
 #include "Malla.h"
+#include "Color.h"
+#include "TAfin.h"
 //---------------------------------------------------------------------------
 class Cubo : public Malla{
 
@@ -13,7 +15,7 @@ class Cubo : public Malla{
                 GLfloat z;
 
         public:
-                Cubo(GLfloat xa, GLfloat ya, GLfloat za);
+                Cubo(GLfloat xa, GLfloat ya, GLfloat za, TAfin* t, Color* c);
                 void construye();
 };
 

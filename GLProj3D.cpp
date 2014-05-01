@@ -20,6 +20,7 @@ USEUNIT("Disco.cpp");
 USEUNIT("DiscoParcial.cpp");
 USEUNIT("Camara.cpp");
 USEUNIT("Escena.cpp");
+USEUNIT("Cubo.cpp");
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {

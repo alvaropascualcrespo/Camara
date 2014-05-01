@@ -11,7 +11,7 @@ class Escena{
 
         public:
                 Escena(TAfin* t);
-                void dibuja();
+                void dibuja(bool relleno);
 };
 
 #endif

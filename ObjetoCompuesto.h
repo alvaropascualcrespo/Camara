@@ -16,7 +16,7 @@ class ObjetoCompuesto : public Objeto3D{
                 void anade(Objeto3D* o);
                 int getNumObjetos(){return numObjetos;};
                 Objeto3D* dameObjeto(int i){return array[i];};
-                void dibuja();
+                void dibuja(bool relleno);
 
 };
 #endif

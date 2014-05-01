@@ -39,6 +39,7 @@
 #define KEY_5 53
 #define KEY_6 54
 #define KEY_7 55
+#define KEY_8 56
 #define KEY_E 69
 #define KEY_R 82
 #define KEY_D 68

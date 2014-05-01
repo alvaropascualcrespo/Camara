@@ -12,7 +12,7 @@ class ObjetoCompuesto : public Objeto3D{
                 int numObjetos;
 
         public:
-                ObjetoCompuesto(TAfin* t);
+                ObjetoCompuesto(TAfin* t, Color* c);
                 void anade(Objeto3D* o);
                 int getNumObjetos(){return numObjetos;};
                 Objeto3D* dameObjeto(int i){return array[i];};

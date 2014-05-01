@@ -17,7 +17,7 @@ class Esfera : public ObjetoCuadrico{
 
         public:
                 Esfera(GLdouble r, GLint p, GLint m, TAfin* t, Color* c);
-                void dibuja();
+                void dibuja(bool rellena);
 };
 
 #endif
